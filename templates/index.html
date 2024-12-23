@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h2>Image Classifier</h2>
+
+    <!-- Upload Form -->
+    <div>
+        <form id="upload-file" method="post" enctype="multipart/form-data">
+            <label for="imageUpload" class="upload-label">
+                Choose...
+            </label>
+            <input type="file" name="file" id="imageUpload" accept=".png, .jpg, .jpeg" style="display: none;">
+        </form>
+    </div>
+
+    <!-- Image Preview Section -->
+    <div class="image-section" style="display:none;">
+        <div class="img-preview">
+            <div id="imagePreview"></div>
+        </div>
+        <div>
+            <button type="button" class="btn btn-primary btn-lg" id="btn-predict">Predict!</button>
+        </div>
+    </div>
+
+    <!-- Loader Animation -->
+    <div class="loader" style="display:none;"></div>
+
+    <!-- Prediction Result Section -->
+    <div id="result" style="display:none;" class="result-container">
+        <h3>Prediction Result</h3>
+        <div class="result-details">
+            <p><strong style="color: #ff5722;">Disease:</strong> <span id="disease"></span></p>
+            <p><strong style="color: #4caf50;">Symptoms:</strong> <span id="symptoms"></span></p>
+            <p><strong style="color: #2196f3;">Remedies:</strong> <span id="remedies"></span></p>
+        </div>
+    </div>
+</div>
+{% endblock %}
